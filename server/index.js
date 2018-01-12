@@ -4,7 +4,7 @@ const express = require('express');
 const app = express();
 
 app.get('/', (req, res) => {
-    res.send({hi: 'Our greeting!', id: 1234});
+    res.send({hi: 'Our greeting!', id: 1234, comment: 'Changed'});
 });
 
 // dynamically listen what port we need to set it to
