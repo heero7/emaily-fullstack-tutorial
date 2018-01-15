@@ -1,6 +1,8 @@
 // import Express library
 const express = require("express");
 const mongoose = require('mongoose');
+const cookieSession = require('cookie-session');
+const passport = require('passport');
 const keys = require('./config/keys');
 // import the models for mongoDB
 require('./models/User');
@@ -13,6 +15,16 @@ mongoose.connect(keys.mongoURI, {useMongoClient: true});
 
 
 const app = express();
+
+app.use(
+    cookieSession({
+        maxAge: 30 * 24 * 60 * 60 * 1000, // 30 days
+        keys: [keys.cookieKey]
+    })
+);
+
+app.use(passport.initialize());
+app.use(passport.session());
 
 // import authRoutes.js
 // pass in app into authRoutes, for reference to app
