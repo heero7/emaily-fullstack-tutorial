@@ -2,8 +2,11 @@
 const express = require("express");
 const mongoose = require('mongoose');
 const keys = require('./config/keys');
+// import the models for mongoDB
+require('./models/User');
 // import passport file, but doesn't return anything. Just simple require statement
 require('./services/passport');
+
 
 // connect to mongoDB 
 mongoose.connect(keys.mongoURI, {useMongoClient: true});
