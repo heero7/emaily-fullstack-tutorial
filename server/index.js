@@ -1,13 +1,20 @@
 // import Express library
-const express = require('express');
-// require passport
-const passport = require('passport');
-const GoogleStrategy = require('passport-google-oauth20').Strategy; // required for Google OAuth
+const express = require("express");
+const mongoose = require('mongoose');
+const keys = require('./config/keys');
+// import passport file, but doesn't return anything. Just simple require statement
+require('./services/passport');
+
+// connect to mongoDB 
+mongoose.connect(keys.mongoURI, {useMongoClient: true});
 
 
 const app = express();
 
-passport.use(new GoogleStrategy());
+// import authRoutes.js
+// pass in app into authRoutes, for reference to app
+require('./routes/authRoutes')(app);
+
 
 
 // dynamically listen what port we need to set it to
