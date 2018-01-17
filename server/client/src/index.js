@@ -1,4 +1,7 @@
 import React from "react";
+// import for materialize
+import 'materialize-css/dist/css/materialize.min.css';
+
 import ReactDOM from "react-dom";
 
 import { Provider } from "react-redux";
