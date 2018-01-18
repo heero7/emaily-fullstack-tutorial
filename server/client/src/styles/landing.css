@@ -1,0 +1,20 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: rgb(187, 187, 187);
+}
+
+.landing {
+    text-align: center;
+    min-height: 480px;
+    margin-top: 150px;
+}
+
+.landing h1 {
+    font-size: 70px;
+    margin-bottom: 0;
+}
+
+.landing p {
+    font-size: 22px;
+}

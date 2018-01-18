@@ -1,10 +1,12 @@
 import React from 'react';
+import '../styles/landing.css';
 
 const Landing = () => {
     return (
-        <div style={{textAlign: 'center'}}>
+        <div className="landing">
             <h1>Emaily</h1>
-            Collect feedback from your users
+            <p>Collect feedback from your users</p>
+            <h5>Start Today!</h5>
         </div>
     );
 }

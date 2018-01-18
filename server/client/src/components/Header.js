@@ -12,7 +12,7 @@ class Header extends Component {
   renderLoginContent() {
     switch (this.props.auth) {
       case null:
-        return "S";
+        return "";
       case false:
         return (
           <li>
