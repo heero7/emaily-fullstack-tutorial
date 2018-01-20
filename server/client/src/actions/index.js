@@ -13,3 +13,17 @@ export const fetchUser = () => async dispatch => {
   const res = await axios.get("/api/current_user");
   dispatch({ type: FETCH_USER, payload: res.data });
 };
+
+/**
+ * Update the USER model, to give the currently logged
+ * user credits. Send a post request to /api/stripe.
+ * The response will be a user object updated with 
+ * credits
+ * 
+ * @param {*} token : This token is from the Stripe
+ * API. 
+ */
+export const handleToken = (token) => async dispatch =>{
+  const res = await axios.post("/api/stripe", token);
+  dispatch({type: FETCH_USER, payload: res.data})
+}
