@@ -34,6 +34,20 @@ require("./routes/authRoutes")(app);
 // pass in app into billingRoutes, for reference to app
 require("./routes/billingRoutes")(app);
 
+/*
+  Only in production:
+*/
+if (process.env.NODE_ENV === 'production') {
+  // Express serves production assets: i.e main.js or main.css
+  app.use(express.static("client/build"));
+
+  // Express serves index.html, if an unknown route to express occurs
+  const path = require("path");
+  app.get("*", (req, res) => {
+    res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
+  });
+}
+
 // dynamically listen what port we need to set it to
 // if in a development environment, assign it use 5000
 const PORT = process.env.PORT || 5000;
