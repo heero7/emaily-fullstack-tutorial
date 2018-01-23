@@ -37,14 +37,14 @@ require("./routes/billingRoutes")(app);
 /*
   Only in production:
 */
-if (process.env.NODE_ENV === 'production') {
+if (process.env.NODE_ENV === "production") {
+  const path = require("path");
   // Express serves production assets: i.e main.js or main.css
-  app.use(express.static("client/build"));
+  app.use(express.static(path.join(__dirname, "client/build")));
 
   // Express serves index.html, if an unknown route to express occurs
-  const path = require("path");
+
   app.get("*", (req, res) => {
-    console.log("Path: ", __dirname);
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
