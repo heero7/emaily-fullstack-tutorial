@@ -7,6 +7,7 @@ const bodyParser = require("body-parser"); // allow reqests, to be parsed in exp
 const keys = require("./config/keys");
 // import the models for mongoDB
 require("./models/User");
+require("./models/Survey");
 // import passport file, but doesn't return anything. Just simple require statement
 require("./services/passport");
 
