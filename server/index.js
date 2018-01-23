@@ -34,6 +34,9 @@ require("./routes/authRoutes")(app);
 // import billingRoutes.js
 // pass in app into billingRoutes, for reference to app
 require("./routes/billingRoutes")(app);
+// import survey routes
+// pass in app for reference
+require("./routes/surveyRoutes")(app);
 
 /*
   Only in production:
