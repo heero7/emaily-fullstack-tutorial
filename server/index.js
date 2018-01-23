@@ -44,6 +44,7 @@ if (process.env.NODE_ENV === 'production') {
   // Express serves index.html, if an unknown route to express occurs
   const path = require("path");
   app.get("*", (req, res) => {
+    console.log("Path: ", __dirname);
     res.sendFile(path.resolve(__dirname, "client", "build", "index.html"));
   });
 }
