@@ -12,6 +12,11 @@ const Mailer = require("../services/Mailer");
 const Survey = mongoose.model("surveys");
 
 module.exports = app => {
+
+  app.get("/api/surveys/thanks", (req, res) => {
+    res.send("Thanks for voting!");
+  });
+
   // check if user is logged in
   // then check if user has enough credits
   app.post("/api/surveys", requireLogin, requireCredits, async (req, res) => {
