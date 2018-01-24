@@ -14,7 +14,7 @@ const Survey = mongoose.model("surveys");
 module.exports = app => {
   // check if user is logged in
   // then check if user has enough credits
-  app.post("/api/surveys", requireLogin, requireCredits, (req, res) => {
+  app.post("/api/surveys", requireLogin, requireCredits, async (req, res) => {
     const { title, subject, body, recipients } = req.body;
     const survey = new Survey({
       title,
@@ -27,6 +27,18 @@ module.exports = app => {
 
     //Send email
     const mailer = new Mailer(survey, surveyTemplate(survey));
-    mailer.send();
+    try {
+      await mailer.send();
+      await survey.save();
+
+      // deduct credit from user
+      req.user.credits -= 1;
+      // get the updated user with n - 1 credits
+      const user = await req.user.save();
+
+      res.send(user);
+    } catch (error) {
+      res.status(422).send(err);
+    }
   });
 };
