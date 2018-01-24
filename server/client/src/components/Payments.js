@@ -9,9 +9,9 @@ import * as actions from '../actions';
  * Stripe Checkout wrapper
  */
 class Payments extends Component {
-    constructor(props) {
-        super(props);
-    }
+    // constructor(props) {
+    //     super(props);
+    // }
 
 
 
