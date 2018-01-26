@@ -8,6 +8,8 @@ import { reduxForm, Field } from "redux-form"; // identical to connect in redux
 // COMPONENTS
 import SurveyField from "./SurveyField";
 
+import validateEmails from "../../utils/validateEmails";
+
 const FIELDS = [
   { label: "Survey Title", name: "title" },
   { label: "Subject Line", name: "subject" },
@@ -47,6 +49,25 @@ class SurveyForm extends Component {
   }
 }
 
+function validate(values) {
+    const errors = {};
+
+    errors.email = validateEmails(values.email || "");
+
+    _.each(FIELDS, ({ name }) => {
+        if (!values[name]) {
+            errors[name] = "You must provide a value";
+        }
+    });
+
+    
+
+    return errors;
+}
+
 // only passes one parameter, for options
 // Note: handleSubmit is given to us via reduxForm
-export default reduxForm({ form: "surveyForm" })(SurveyForm);
+export default reduxForm({
+  validate,
+  form: "surveyForm"
+})(SurveyForm);
