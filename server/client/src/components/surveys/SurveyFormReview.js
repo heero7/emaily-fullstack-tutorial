@@ -4,7 +4,6 @@ import _ from "lodash";
 import formFields from "./formFields";
 import * as actions from "../../actions";
 import { withRouter } from "react-router-dom";
-import { submitSurvey } from "../../actions";
 
 
 
