@@ -17,7 +17,7 @@ Practice on how to make a full MERN stack app via Udemy ( by Stephen Grider )
 - SendGrid : Sending mass emails
 
 ## Installation/Use
-1. Visit website: https://stark-woodland-21450.herokuapp.com/
+1. Visit website: https://stark-woodland-21450.herokuapp.com/ (Takes a while to load... I'm sure this is a webpack issue, the way I might have bundled everything) 
 2. Download Repo
 - Download dependencies : (npm install) [npm was used for this project, yarn might be able to be used as well]
 - Install MongoDB or create simalar schema's via mLab
